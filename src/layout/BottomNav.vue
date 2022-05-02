@@ -65,6 +65,7 @@ export default {
     background-color: rgb(197, 255,198);
     position: fixed;
     bottom: 0;
+    z-index: 1000;
 }
 
 .cos-bottom-nav {

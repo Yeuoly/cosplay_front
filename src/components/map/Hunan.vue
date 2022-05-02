@@ -5,13 +5,13 @@
 </template>
 
 <script>
-import ChinaJSON from '../../assets/map/china.json'
+import HunanJSON from '../../assets/map/hunan.json'
 import { init, registerMap } from 'echarts'
 import { getCurrentInstance, onMounted, onUnmounted } from 'vue'
 import { city_cn2en, isLocationAllowed } from '../../conf/location'
 import { useRouter } from 'vue-router'
 
-registerMap('china', ChinaJSON)
+registerMap('hunan', HunanJSON)
 
 export default {
     setup() {
@@ -28,23 +28,22 @@ export default {
                 },
                 geo: {
                     type: "map",
-                    map: "china",
+                    map: "hunan",
                     roam: true,
-                    zoom: 1.23,
-                    center: [105, 36],
+                    center: [],
                     // geoIndex: 1,
                     // aspectScale: 0.75, //长宽比
                     showLegendSymbol: false, // 存在legend时显示
                     label: {
                         normal: {
                             show: true
-                    },
-                    emphasis: {
-                        show: false,
-                        textStyle: {
-                            color: "white"
+                        },
+                        emphasis: {
+                            show: true,
+                            textStyle: {
+                                color: "white"
+                            }
                         }
-                    }
                     },
                     itemStyle: {
                         normal: {
@@ -65,23 +64,7 @@ export default {
                         }
                     }
                 },
-                series: [{
-                    type: 'effectScatter',
-                    coordinateSystem: 'geo',
-                    geoIndex: 0,
-                    symbolSize: function(params) {
-                        return (params[2] / 100) * 15 + 5
-                    },
-                    itemStyle: {
-                        color: '#b02a02'
-                    },
-                    encode: {
-                        tooltip: 2
-                    },
-                    data: [
-                        [111.53, 27.51, 100]
-                    ]
-                }]
+                series: []
             }
     
             echart.setOption(options)
@@ -90,13 +73,10 @@ export default {
                     const city = e.name
                     if(isLocationAllowed(city)){
                         const route_name = city_cn2en(city)
-                        router.push({ path: `/map/${route_name}`})
+                        router.push(`/map/${route_name}`)
                     }
                 }
-
-                return true
             })
-
             const Resize = () => {
                 echart.resize()
             }
