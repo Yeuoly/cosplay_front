@@ -1,6 +1,9 @@
 const Index = () => import('../views/Index.vue')
 const Login = () => import('../views/auth/Login.vue')
 const GlobalMap = () => import('../views/map/Global.vue')
+const Category = () => import('../views/Category.vue')
+const CosplayPoint = () => import('../views/CosplayPoint.vue')
+const CreateCosplayPoint = () => import('../views/CreateCosplayPoint.vue')
 
 import Maps from './map'
 
@@ -17,4 +20,16 @@ export const routes = [{
     path: '/map',
     component: GlobalMap,
     children: Maps
+}, {
+    name: 'category',
+    path: '/category',
+    component: Category
+}, {
+    name: 'cosplay_points',
+    path: '/cosplay_points',
+    component: CosplayPoint
+}, {
+    name: 'create_cosplay_point',
+    path: '/location/create',
+    component: CreateCosplayPoint
 }]

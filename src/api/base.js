@@ -1,4 +1,5 @@
 import { useCookies } from "vue3-cookies"
+import { stringify } from 'querystring'
 import axios from 'axios'
 
 const { cookies } = useCookies()
@@ -16,6 +17,7 @@ export const SetCSRFToken = token => {
 export const api_base = (url, method, args) => new Promise( resolve => {
     (async function(){
         args = args || ''
+        args = typeof args !== 'string' ? stringify(args) : args   
         args = ( args == '' ? '' : args + '&' ) + 'csrf_token=' + csrf_token
         switch(method.toLowerCase()){
             case 'post':

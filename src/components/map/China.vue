@@ -31,7 +31,6 @@ export default {
                     map: "china",
                     roam: true,
                     zoom: 1.23,
-                    center: [105, 36],
                     // geoIndex: 1,
                     // aspectScale: 0.75, //长宽比
                     showLegendSymbol: false, // 存在legend时显示

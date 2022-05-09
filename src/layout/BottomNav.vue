@@ -23,12 +23,15 @@ import bus from 'vue3-eventbus'
 export default {
     setup() {
         const router = useRouter()
-        const routes = ref([{
+        const routes = ref([/*{
             name : '地图',
             route : '/map'
-        }, {
+        }, */{
             name : '约～',
             route : '/date'
+        }, {
+            name : '分类',
+            route : '/category'
         }, {
             name : '我的',
             route : '/profile'
