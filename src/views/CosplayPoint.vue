@@ -66,7 +66,7 @@ export default {
         const page = ref(1)
 
         //selector of cosplay point filter
-        const selected_cosplay_point = ref([])
+        const selected_cosplay_point = ref([1])
         const select_cosplay_point_options = cosplay_points_code.map(v => {
             return {
                 value: v.code,
@@ -128,7 +128,7 @@ export default {
                     ErrorMessage(data ? data['err'] : '网络错误')
                 }
             }
-        })
+        } , { immediate: true })
 
         //jump to create cosplay point page
         const jumpToCreateCosplayPoint = () => {

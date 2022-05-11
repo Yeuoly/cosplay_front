@@ -36,3 +36,7 @@ export const SetAttach = attach => {
 export const GetAttach = () => {
     return user.attach
 }
+
+export const IsUserAdmin = () => {
+    return !!user.attach && ( user.attach.state & 0x1 == 0x1 )
+}

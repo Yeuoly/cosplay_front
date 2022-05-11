@@ -35,3 +35,6 @@ export const api_like_cosplay_point = cid =>
 
 export const api_unlike_cosplay_point = cid =>
     api_base('/location/unlike', 'post', { cid })
+
+export const api_get_scatter_cosplay_points_by_city = city => 
+    api_base('/location/scatter/city', 'get', { city })

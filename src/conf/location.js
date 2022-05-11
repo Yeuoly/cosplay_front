@@ -178,6 +178,23 @@ export const getPlaceNameByCityCode = city_code => {
         }
     }
 }
+export const getPlaceCodeByPlaceName = place_name => {
+    for(var i in cosplay_points_code) {
+        for(var j in cosplay_points_code[i].provinces) {
+            if (cosplay_points_code[i].provinces[j].name == place_name
+               || cosplay_points_code[i].provinces[j].name + '省' == place_name) {
+                return cosplay_points_code[i].provinces[j].code
+            }
+            for(var k in cosplay_points_code[i].provinces[j].cities) {
+                if(cosplay_points_code[i].country == place_name
+                    || cosplay_points_code[i].provinces[j].cities[k].name + '市'== place_name) {
+                    return cosplay_points_code[i].provinces[j].cities[k].code
+                }
+            }
+        }
+    }
+}
+
 export const makePlaceComplete = place => {
     if(place.r_meta == null){
         place.r_meta = {

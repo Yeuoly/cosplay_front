@@ -17,6 +17,7 @@
 <script>
 import { computed, ref } from 'vue'
 import { useRouter } from 'vue-router'
+import { IsUserAdmin } from '../store/user'
 
 import bus from 'vue3-eventbus'
 
@@ -36,6 +37,14 @@ export default {
             name : '我的',
             route : '/profile'
         }])
+
+        if (IsUserAdmin()) {
+            routes.value.push({
+                name : '管理',
+                route : '/admin'
+            })
+        }
+
         const toRoute = route => {
             router.push({ path : route })
         }
@@ -64,8 +73,9 @@ export default {
 
 <style>
 .cos-bottom-nav-container {
+    background-color: white;
     width: 100%;
-    background-color: rgb(197, 255,198);
+    box-shadow: 0 3px 6px rgb(0 0 0 / 16%), 0 3px 6px rgb(0 0 0 / 23%);
     position: fixed;
     bottom: 0;
     z-index: 1000;
@@ -87,7 +97,7 @@ export default {
 
 .cos-bottom-nav div:hover {
     cursor: pointer;
-    background-color: rgb(167, 247, 168);
+    color: pink;
     border-radius: 8px;
 }
 

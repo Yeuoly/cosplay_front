@@ -24,6 +24,6 @@ export default {
 
 <style>
     .nav-header {
-        background-image: radial-gradient(circle at 0,#409eef,#3d59bb,#9cc,#61bbbb);
+        background-color: rgb(255,103,154);
     }
 </style>

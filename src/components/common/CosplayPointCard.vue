@@ -5,7 +5,7 @@
         ></el-image>
         <div class="cos-point-card-info">
             <div class="cos-point-card-status">
-                <el-tag size="mini" type="info" v-if="isCommited && !isRejected && !isRejected">
+                <el-tag size="mini" type="info" v-if="isCommited && !isResolved && !isRejected">
                     已提交
                 </el-tag>
                 <el-tag size="mini" type="warning" v-if="isRejected">
@@ -110,7 +110,7 @@ export default {
     width: calc(100% - 100px);
     text-overflow: ellipsis;
     overflow: hidden;
-    white-space: nowrap;
+    /* white-space: nowrap; */
 }   
 
 .cos-point-card-description {
